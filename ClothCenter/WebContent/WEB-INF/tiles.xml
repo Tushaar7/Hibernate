@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <!DOCTYPE tiles-definitions PUBLIC  
+           "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"  
+           "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">  
+    <tiles-definitions>  
+       <definition name="base.definition" template="/baselayout.jsp">  
+            <put-attribute name="title" value="" />  
+            <put-attribute name="header" value="/header.jsp" />  
+            <put-attribute name="menu" value="" />  
+            <put-attribute name="body" value="" />  
+            <put-attribute name="footer" value="/footer.jsp" />  
+        </definition>  
+     
+      <!--Login base layout -->
+        <definition name="base.login" extends="base.definition">  
+            <put-attribute name="title"  
+                value="" />  
+            <put-attribute name="header" value="" />  
+            <put-attribute name="menu" value="" />  
+            <put-attribute name="body" value="" />  
+            <put-attribute name="footer" value="" />  
+            <put-attribute name="body" value="" />  
+        </definition> 
+       
+        <!--Login base layout -->
+        <definition name="errorPage" extends="base.definition">  
+            <put-attribute name="title" value="Error Occured..." />  
+            <put-attribute name="header" value="" />  
+            <put-attribute name="menu" value="" />  
+            <put-attribute name="body" value="/error.jsp" />  
+            <put-attribute name="footer" value="/footer.jsp" />  
+        </definition> 
+        
+       <!-- Admin Base layout -->
+        <!-- <definition name="base.admin" extends="base.definition">  
+            <put-attribute name="title" value="" />  
+            <put-attribute name="header" value="/header.jsp" />  
+            <put-attribute name="menu" value="/adminMenu.jsp" />  
+            <put-attribute name="body" value="" />  
+            <put-attribute name="footer" value="/footer.jsp" />  
+          
+        </definition>  -->
+        
+             
+        
+        <!-- user Base layout -->
+        <definition name="base.user" extends="base.definition">  
+            <put-attribute name="title" value="" />  
+            <put-attribute name="header" value="/header.jsp" />  
+            <put-attribute name="menu" value="/WEB-INF/jsp/adminMenu.jsp" />  
+            <put-attribute name="body" value="" />  
+            <put-attribute name="footer" value="/footer.jsp" />  
+            <put-attribute name="body" value="" />  
+        </definition> 
+    
+        
+        <!-- To Open login First page --> 
+        <definition name="login" extends="base.login">  
+            <put-attribute name="title" value="Login Page" />  
+               <put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
+		</definition> 
+		
+		<!-- To Open Homepage when Login Successfull -->
+		   <definition name="HomePage" extends="base.user">  
+            <put-attribute name="title" value="Home Page" />  
+               <put-attribute name="body" value="/WEB-INF/jsp/HomePage.jsp" />
+		</definition> 
+			
+		
+	
+		
+		
+		
+		<definition name="ViewProductPage" extends="base.user">
+		<put-attribute name="title" value="AddProduct"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/Admin/addProduct.jsp"></put-attribute>
+		
+		</definition>
+		<definition name="viewSubProductPage" extends="base.user">
+		<put-attribute name="title" value="AddSubProduct"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/Admin/addSubProduct.jsp"/>
+		</definition>
+		<definition name="PurchasePageOpen" extends="base.user">
+		<put-attribute name="title" value="purchasefrom"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/purchase/purchase.jsp"/>
+		</definition>
+		<!-- open SupplierPage -->
+		
+		<definition name="OpenSupplierpage" extends="base.user">
+		<put-attribute name="title" value="supplierpage"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/Admin/Addsuplier.jsp"/>
+		</definition>
+		
+		
+		<!-- OpenSaleFrom -->
+		<definition name="OpenSaleFrom" extends="base.user">
+		<put-attribute name="title" value="opensale"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/Sale/sale.jsp"/>
+		</definition>
+		
+	<!-- 	OPen Stock Page -->
+	<definition name="OpenStockPage" extends="base.user">
+		<put-attribute name="title" value="Stock"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/Sale/stock.jsp"/>
+		</definition>
+	     <!-- Open PurchasePage -->
+	     <definition name="OpenPurchasePage" extends="base.user">
+	     <put-attribute name="title" value="purchasepageopen"/>
+	     <put-attribute name="body" value="/WEB-INF/jsp/DayOfBook/purchaseDetails.jsp"/>
+	     
+	     </definition>
+	     <definition name="OpenSalesPage" extends="base.user">
+	     <put-attribute name="title" value="salesFrom"/>
+	     <put-attribute name="body" value="/WEB-INF/jsp/DayOfBook/SaleDetails.jsp"/>
+	     </definition>
+	     <definition name="OpenPurchasledgerePage" extends="base.user">
+	     <put-attribute name="title" value="purchaseLedger"/>
+	     <put-attribute name="body" value="/WEB-INF/jsp/ladars/purchaseLedger.jsp"/>
+	     
+	    </definition>
+         <definition name="OpenSalesLedgers" extends="base.user">
+         <put-attribute name="title" value="sallesLedger"/>
+         <put-attribute name="body" value="/WEB-INF/jsp/ladars/salesLedgers.jsp"/>
+         </definition>	
+         <definition name="PurchasePageSaveopen" extends="base.user">
+         <put-attribute name="title" value="sallesLedger"/>
+         <put-attribute name="body" value="/WEB-INF/jsp/purchase/purchase.jsp"/>
+         </definition>
+         <definition name="OpenBalaceSheet" extends="base.user">
+         <put-attribute name="title" value="openbalace"/>
+         <put-attribute name="body" value="/WEB-INF/jsp/balanceSheet/balanceSheet.jsp"></put-attribute>
+         
+         </definition>	
+      <!--    OPEN Final BalanceSheet -->
+         <definition name="opneFinalBalanceSheet" extends="base.user">
+         <put-attribute name="title" value="finalBalanceSheet"></put-attribute>
+         <put-attribute name="body" value="/WEB-INF/jsp/balanceSheet/finalSheet.jsp"/>
+       
+         </definition>   
+         <definition name="finalReportBalance" extends="base.user">
+         <put-attribute name="title" value="finalBalanceReport"></put-attribute>
+         <put-attribute name="body" value="/WEB-INF/jsp/balanceSheet/finalBalanceSheetReport.jsp"></put-attribute>
+         </definition>
+</tiles-definitions>  

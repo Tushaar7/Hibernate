@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="profitLoss" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a770b8d2-a10b-4975-88e3-80b6857cb90f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="OpeningAmount" class="java.lang.String"/>
+	<parameter name="Netprofit" class="java.lang.String"/>
+	<parameter name="totalA" class="java.lang.String"/>
+	<parameter name="banner" class="java.lang.String"/>
+	<parameter name="Datess" class="java.lang.String"/>
+	<parameter name="toDate" class="java.lang.String"/>
+	<parameter name="fromDate" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT a.addAmount,a.addItemName FROM assetmodel a where a.assetDate between  $P{toDate} and $P{fromDate} union all SELECT a1.lessAmount,a1.lessItem  FROM assetmodel1 a1  where a1.assetDate between $P{toDate} and $P{fromDate} ;]]>
+	</queryString>
+	<field name="addAmount" class="java.lang.Double"/>
+	<field name="addItemName" class="java.lang.String"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="114" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="30b548a0-27ea-4e44-8d11-ae00ddf6c8c4" x="159" y="2" width="323" height="33" forecolor="#FF3300"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Shree Ganesh Cloth Center ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ab317de4-a8de-43c7-b8d1-14bcc8374357" x="161" y="35" width="353" height="21"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Shilavihar Colony Corner,Paud road,Pune 38]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="21388eba-5487-4e36-97df-121e85824f27" x="0" y="2" width="119" height="74"/>
+				<imageExpression><![CDATA[$P{banner}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="37" splitType="Stretch">
+			<line>
+				<reportElement uuid="c202d181-a694-48b9-aaed-762eeeff467e" x="229" y="29" width="201" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="d4bd0806-c8c0-450b-a362-b49bc873699d" x="392" y="9" width="57" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Datess}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="7668c0d0-fb32-4134-99ae-cb3f80ad6b86" x="157" y="11" width="303" height="23"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ BALANCE SHEET AS ON ]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="b1d20970-8232-49e4-ae8f-e90605ebbf38" x="0" y="2" width="223" height="26"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[    CAPITAL A/C]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="49835c04-dbad-45e3-bd28-073dc7b62157" x="15" y="26" width="70" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="fa43dcd3-2757-4b48-8e24-c9998d06b623" x="8" y="30" width="164" height="15"/>
+				<textElement/>
+				<text><![CDATA[OPENING BALANCE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1c8b1aff-4355-44b8-b35f-8f825813c147" x="6" y="43" width="164" height="17"/>
+				<textElement/>
+				<text><![CDATA[ADD: NET PROFIT]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="306090c5-dba9-41c2-b248-f5846ee3e8b3" x="170" y="30" width="109" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{OpeningAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8c2d2505-14b7-4c9c-a893-6bd54124869a" x="171" y="43" width="108" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{Netprofit}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField>
+				<reportElement uuid="4ed9b97c-73b8-4b6d-9ab8-cdb8ce50b358" x="6" y="0" width="164" height="13"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{addItemName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="071fbb8a-7e35-458e-af5f-6f7ac80d9869" x="171" y="0" width="108" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{addAmount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="71" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="6725980e-473c-4b39-ae58-788df8b58a66" x="8" y="3" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="28612fee-626b-41b0-9b7a-fb1d4b273c50" x="171" y="3" width="107" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{totalA}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="b4fbf312-287a-4f9a-a7f3-1d53e2eecae1" x="185" y="-1" width="70" height="1"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

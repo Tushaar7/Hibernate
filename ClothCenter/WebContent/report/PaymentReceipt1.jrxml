@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="profitLoss" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a770b8d2-a10b-4975-88e3-80b6857cb90f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="banner" class="java.lang.String"/>
+	<parameter name="supplierName" class="java.lang.String"/>
+	<parameter name="amountInWord" class="java.lang.String"/>
+	<parameter name="amountInDigit" class="java.lang.String"/>
+	<parameter name="totalAmount" class="java.lang.String"/>
+	<parameter name="remainingAmount" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT Supliername FROM supliermodel where suplierid=$P{supplierName};]]>
+	</queryString>
+	<field name="Supliername" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="30b548a0-27ea-4e44-8d11-ae00ddf6c8c4" x="129" y="5" width="323" height="33" forecolor="#FF3333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Shree Ganesh Cloth Center ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ab317de4-a8de-43c7-b8d1-14bcc8374357" x="131" y="38" width="353" height="21"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Shilavihar Colony Corner,Paud road,Pune 38]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="613d89f0-42c2-4353-b5e0-e1f095f757a9" x="380" y="59" width="29" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="6e58d4f2-314a-4d09-86ca-377939551005" x="412" y="59" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="21388eba-5487-4e36-97df-121e85824f27" x="1" y="5" width="118" height="64"/>
+				<imageExpression><![CDATA[$P{banner}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="25" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement uuid="dd7f0de5-9fe7-4ac6-94d6-f593e04707f6" x="177" y="0" width="232" height="23"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="7668c0d0-fb32-4134-99ae-cb3f80ad6b86" x="186" y="0" width="213" height="23"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Payment Vochar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fb2e472c-96cf-4477-a916-e8f93693299a" x="1" y="3" width="51" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO.:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="157" splitType="Stretch">
+			<line>
+				<reportElement uuid="ddbccc80-5e5c-45ce-afcf-6166549cc1f5" x="189" y="27" width="348" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="4783876b-03c6-466b-9a69-cbec51fb68fe" x="191" y="59" width="356" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="1286e2a7-c8e3-48ff-970f-1dcdc3b39c2a" x="265" y="108" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Signature]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0e6a3646-053c-4e9c-8ea4-ca3dd4781c4c" x="404" y="108" width="127" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Authorised Signatory]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8fb35127-582b-4e31-b172-1b9ce2ad31ed" x="164" y="79" width="78" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<text><![CDATA[Total Amount :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ec40720f-acf4-40ba-afc0-b78a2ef68fb4" x="346" y="79" width="94" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<text><![CDATA[Remaining Amount :]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="4d5be61e-8621-4808-ab42-6ea5898008dd" x="192" y="7" width="348" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Supliername}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="009aa5a2-848a-4b32-a261-090dc8274417" x="189" y="39" width="356" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{amountInWord}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8be02700-5e4d-4706-8654-6dc7c6388aea" x="443" y="79" width="96" height="20"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{remainingAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d80555bc-0d1f-40c5-a43b-65a3b2bd3796" x="243" y="79" width="96" height="20"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{totalAmount}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement uuid="a11dcebd-e796-4fda-92f6-547f1b8f1541" x="6" y="78" width="145" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="d18164d9-17e7-4e9e-bb1f-2bac866789df" x="5" y="79" width="29" height="20"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Rs :]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="1bd5203e-9e4f-4beb-8b0c-1181a37e91a7" x="34" y="79" width="117" height="20"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{amountInDigit}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="8adee410-8c4a-475c-bc49-061e81fd88f3" x="6" y="8" width="180" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Cash /Credit/Cheque/ pay to Mr./Mrs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6f785c5f-7e54-4200-85ab-ed8f579f4900" x="5" y="39" width="181" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[sum of rupees  (in cash/Cheque)]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

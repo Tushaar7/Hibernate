@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+	<hibernate-configuration>
+	<session-factory>
+	
+	<mapping class="com.model.ProductModel"/>
+	<mapping class="com.model.Sub_ProductModel"/>
+	<mapping class="com.model.PurchaseModel"/>
+	<mapping class="com.model.SuplierModel"/>
+    <mapping class="com.model.LoginModel"/>
+    <mapping class="com.model.BillingModel"/>
+    <mapping class="com.model.SalesBillingModel"/>
+    <mapping class="com.model.CustomerModel"/>
+    <mapping class="com.model.SalesModel"/>
+    <mapping class="com.model.StockModel"/>
+    <mapping class="com.model.PurchaseLedgerModel"/>
+    <mapping class="com.model.SalesLedgerModel"/>
+    <mapping class="com.model.NetProfit"/>
+    <mapping class="com.model.AssetModel"/>
+    <mapping class="com.model.Labilites"/>
+    <mapping class="com.model.AssetModel1"/>
+    <mapping class="com.model.Labilites2"/>
+    <mapping class="com.model.AddTotalLablites"/>
+    <mapping class="com.model.AddTotalAsset"/>
+    <mapping class="com.model.OpeningBalance"/>
+	</session-factory>
+	</hibernate-configuration>

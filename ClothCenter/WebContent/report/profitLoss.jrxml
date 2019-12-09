@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="profitLoss" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a770b8d2-a10b-4975-88e3-80b6857cb90f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="openingStock" class="java.lang.String"/>
+	<parameter name="purchases" class="java.lang.String"/>
+	<parameter name="grossProfit" class="java.lang.String"/>
+	<parameter name="salery" class="java.lang.String"/>
+	<parameter name="pmcRent" class="java.lang.String"/>
+	<parameter name="electricity" class="java.lang.String"/>
+	<parameter name="telephone" class="java.lang.String"/>
+	<parameter name="shopExpenses" class="java.lang.String"/>
+	<parameter name="consultingFees" class="java.lang.String"/>
+	<parameter name="depreciation" class="java.lang.String"/>
+	<parameter name="netProfit" class="java.lang.String"/>
+	<parameter name="sales" class="java.lang.String"/>
+	<parameter name="closingstock" class="java.lang.String"/>
+	<parameter name="otherIncome" class="java.lang.String"/>
+	<parameter name="homerent" class="java.lang.String"/>
+	<parameter name="banner" class="java.lang.String"/>
+	<parameter name="totalA" class="java.lang.String"/>
+	<parameter name="totalAmou" class="java.lang.String"/>
+	<parameter name="totalAmount" class="java.lang.String"/>
+	<parameter name="totalGrossProfit" class="java.lang.String"/>
+	<parameter name="toDate" class="java.lang.String"/>
+	<parameter name="formDate" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT max(amount) FROM purchasemodel p;]]>
+	</queryString>
+	<field name="max(amount)" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="114" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="613d89f0-42c2-4353-b5e0-e1f095f757a9" x="356" y="94" width="70" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Form Date:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="6e58d4f2-314a-4d09-86ca-377939551005" x="426" y="94" width="127" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{formDate}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="21388eba-5487-4e36-97df-121e85824f27" x="4" y="6" width="119" height="74"/>
+				<imageExpression><![CDATA[$P{banner}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="ab317de4-a8de-43c7-b8d1-14bcc8374357" x="133" y="40" width="353" height="21"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Shilavihar Colony Corner,Paud road,Pune 38]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="30b548a0-27ea-4e44-8d11-ae00ddf6c8c4" x="132" y="6" width="323" height="33" forecolor="#FF0066"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Shree Ganesh Cloth Center ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="613d89f0-42c2-4353-b5e0-e1f095f757a9" x="0" y="94" width="70" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[To Date:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="6e58d4f2-314a-4d09-86ca-377939551005" x="70" y="94" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{toDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="34" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement uuid="dd7f0de5-9fe7-4ac6-94d6-f593e04707f6" x="199" y="0" width="185" height="23"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="7668c0d0-fb32-4134-99ae-cb3f80ad6b86" x="208" y="0" width="166" height="23"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Profit and Loss Account]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement uuid="76523a73-833d-4e28-be0d-a3d8350ce0e7" x="0" y="0" width="555" height="26" backcolor="#CCFFFF"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="14d175e3-5dbd-47f0-9d8b-efaaa7089e3b" x="194" y="0" width="94" height="26"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d9156dbd-6723-4e0c-81d3-d88a1eccae88" x="288" y="0" width="172" height="26"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Particulars]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6ee298b7-88b3-494b-9787-288adeaad825" x="460" y="0" width="91" height="26"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d73a0e19-3694-4c7e-9a86-a91dff9ab08c" x="4" y="0" width="191" height="26"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Particulars]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="287" splitType="Stretch">
+			<line>
+				<reportElement uuid="127dfa01-cab4-4a2e-a7a9-d7e81db2fd23" x="194" y="0" width="1" height="287"/>
+			</line>
+			<line>
+				<reportElement uuid="b2eb0bfa-9dd1-4dc4-8779-dac1e93d8ee0" x="3" y="0" width="1" height="287"/>
+			</line>
+			<line>
+				<reportElement uuid="7321e275-98bc-48b8-8c08-42ac62ec65e8" x="288" y="0" width="1" height="287"/>
+			</line>
+			<line>
+				<reportElement uuid="8d7c0a5b-777a-4c48-94ab-bdd06b9cf2e0" x="459" y="0" width="1" height="287"/>
+			</line>
+			<staticText>
+				<reportElement uuid="53ce9803-3b5b-4002-b569-500ac0ba47b1" x="14" y="13" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TO OPENING STOCK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e619c833-d926-4c89-a79f-d9a6b11c1dfc" x="13" y="34" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TO PURCHASES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="962fec02-5d54-49d5-9f3f-da86cee1e5fc" x="13" y="55" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TO GROSS PROFIT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ba55a862-bea2-48de-9fd4-f395e1779c3d" x="11" y="96" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TO SALARY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9b2140c6-8a3d-4639-9c67-42f76b874455" x="11" y="116" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TO PMC RENT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1169ae41-9f53-4bcf-86d0-f50f0c389a9b" x="11" y="136" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TO ELECTRICITY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bfebad48-f867-4adf-bee0-cb26f42ddc1f" x="9" y="178" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TO SHOP EXPENSES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0f21f6d8-bd35-4187-bb43-6004eab4b572" x="9" y="219" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TO DEPRECIATION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="11720950-5263-41e8-a08d-6a2c11aa1471" x="10" y="157" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TO TELEPHONE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3e9b5433-94ec-4595-a9cf-29e29bdbd0c2" x="9" y="199" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TO CONSULTING FEES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="13a6e923-f90d-4fb9-85f9-3c193ec1c684" x="9" y="239" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TO NET PROFIT]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="2ca8e13b-fd16-4f11-93f4-212b95da705d" x="4" y="261" width="546" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="1c809ca3-022c-48ab-b7d6-c85fec068196" x="550" y="0" width="1" height="287"/>
+			</line>
+			<textField>
+				<reportElement uuid="fe2e97de-8345-4e4c-ab53-b43cddae9301" x="195" y="13" width="93" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{openingStock}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="17fdc691-60e6-4c05-b813-985b8d683ed2" x="194" y="34" width="93" height="21"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{purchases}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="786c4f6e-ec1d-47c6-9f10-2353e94d8828" x="194" y="54" width="93" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{grossProfit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="293cc9f4-0c94-4585-9abf-b0deee2c30ed" x="194" y="136" width="93" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{electricity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b39ebe09-39aa-4186-85e3-b49ad7e3511a" x="195" y="95" width="93" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{salery}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="41d9676d-04be-4cc0-9e64-76bd658fcccb" x="194" y="116" width="93" height="21"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{pmcRent}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="46a4fda0-7028-4639-9c06-e8ee43d6fbf9" x="194" y="198" width="93" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{consultingFees}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7d630c3c-c642-4f66-9777-3d16a3fd4a13" x="197" y="156" width="93" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{telephone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e381e322-aeab-4830-b580-7fee214d5e97" x="196" y="177" width="93" height="21"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{shopExpenses}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="20a6fe76-72a5-47fd-b92a-5641ce9e6604" x="193" y="218" width="93" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{depreciation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1454f40e-ae5b-46b4-80f5-f6828a0b2a46" x="192" y="239" width="93" height="21"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{netProfit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4a6e1c83-5d68-4e27-ac77-11ca0bd1a312" x="194" y="266" width="93" height="21"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{totalGrossProfit}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="426a8274-f58a-4a5c-9059-ac8614d2fd7f" x="300" y="35" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[BY CLOSING STOCK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="97d88aca-9643-47a7-a10c-4f20555e4f50" x="301" y="14" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[BY SALES]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="b55fe2d8-bbc1-44c4-9f0b-645d7effd4f5" x="457" y="35" width="93" height="21"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{closingstock}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5e90ae11-f523-4895-b3c8-66ed0892662d" x="458" y="14" width="93" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{sales}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="7f07f59e-6baf-495c-9786-aad53f0ea26a" x="300" y="148" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[BY OTHER INCOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="febbb2ab-404f-448c-97e4-9726625393f7" x="300" y="168" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[BY  RENT]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="1ca4aeed-7a1e-497f-a5a7-1084f45f6d7c" x="462" y="146" width="89" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{otherIncome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="97766bf5-b5ad-451b-8a8e-9cafdcc9bce8" x="460" y="167" width="90" height="21"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{homerent}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1baaa66d-b5d7-491b-ac83-94e1073ef42f" x="458" y="262" width="93" height="21"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{totalAmount}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="fc3aea5e-a2c3-494e-9c6f-e0b4a0a98520" x="4" y="286" width="546" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="786c4f6e-ec1d-47c6-9f10-2353e94d8828" x="195" y="74" width="93" height="20"/>
+				<box topPadding="1" bottomPadding="1">
+					<topPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{totalA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="786c4f6e-ec1d-47c6-9f10-2353e94d8828" x="458" y="76" width="93" height="20"/>
+				<box topPadding="1" bottomPadding="1">
+					<topPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{totalAmou}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="962fec02-5d54-49d5-9f3f-da86cee1e5fc" x="301" y="121" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[BY GROSS PROFIT]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="786c4f6e-ec1d-47c6-9f10-2353e94d8828" x="462" y="121" width="88" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{grossProfit}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="11" splitType="Stretch">
+			<line>
+				<reportElement uuid="76b99188-b4e9-4e25-8218-21c7eb7c9cd5" x="4" y="0" width="546" height="1"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="9" splitType="Stretch"/>
+	</summary>
+</jasperReport>

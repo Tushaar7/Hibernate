@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="profitLoss" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a770b8d2-a10b-4975-88e3-80b6857cb90f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="totalA" class="java.lang.String"/>
+	<parameter name="toDate" class="java.lang.String"/>
+	<parameter name="fromDate" class="java.lang.String"/>
+	<parameter name="closingA" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT l.addItem, l.addAmount FROM labilites l where labDate between $P{toDate} and $P{fromDate} union all SELECT l2.lessItem,l2.lessAmmount FROM labilites2 l2 where labDate between $P{toDate} and $P{fromDate}  ;]]>
+	</queryString>
+	<field name="addItem" class="java.lang.String"/>
+	<field name="addAmount" class="java.lang.Double"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="114" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="37" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="76a1b9f1-c073-4cb6-9ec3-077b238e2c2e" x="303" y="8" width="100" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[CLOSING STOCK]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="681cd22a-ca9e-4ac2-9209-13821ef0a6d0" x="414" y="8" width="100" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$P{closingA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement uuid="3c98fc2c-ee20-4821-94af-072131208ded" x="303" y="0" width="100" height="14"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{addItem}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fc72aed8-dc47-432c-a889-7dfe72a69b9e" x="414" y="0" width="100" height="14"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{addAmount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="71" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="9ea3dfd7-aa28-4ced-b04c-fcac12042344" x="303" y="3" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Total Amount]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="1fbadf6d-470e-45bb-80ec-85718975d223" x="414" y="3" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{totalA}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="8e241c5d-43a9-4bf3-a117-031d2c0f8aba" x="414" y="2" width="100" height="1"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

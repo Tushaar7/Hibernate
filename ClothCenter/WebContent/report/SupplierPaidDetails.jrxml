@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="profitLoss" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a770b8d2-a10b-4975-88e3-80b6857cb90f">
+	<property name="ireport.zoom" value="1.1"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="banner" class="java.lang.String"/>
+	<parameter name="supplierName" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select pm.purid, pm.ledgerDate, pm.paidAmount,sm.Supliername
+from purchaseledgermodel pm join supliermodel sm on pm.suplierid=sm.suplierid
+where pm.suplierid=$P{supplierName}]]>
+	</queryString>
+	<field name="purid" class="java.lang.Integer"/>
+	<field name="ledgerDate" class="java.lang.String"/>
+	<field name="paidAmount" class="java.lang.Double"/>
+	<field name="Supliername" class="java.lang.String"/>
+	<variable name="totalPaid" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{paidAmount}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="30b548a0-27ea-4e44-8d11-ae00ddf6c8c4" x="178" y="2" width="323" height="33" forecolor="#FF9933" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Shree Ganesh Cloth Center ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ab317de4-a8de-43c7-b8d1-14bcc8374357" x="180" y="35" width="353" height="21"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Shilavihar Colony Corner,Paud road,Pune 38]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="613d89f0-42c2-4353-b5e0-e1f095f757a9" x="380" y="59" width="29" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="6e58d4f2-314a-4d09-86ca-377939551005" x="412" y="59" width="143" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="21388eba-5487-4e36-97df-121e85824f27" x="6" y="5" width="171" height="71"/>
+				<imageExpression><![CDATA[$P{banner}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="59" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement uuid="dd7f0de5-9fe7-4ac6-94d6-f593e04707f6" x="177" y="0" width="232" height="23"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="7668c0d0-fb32-4134-99ae-cb3f80ad6b86" x="186" y="0" width="213" height="23"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Supplier Paid Amount Details]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b9f865c1-24e3-4768-b807-d666ff9fd293" x="144" y="32" width="125" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Supplier Name :-]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="7959f446-7fd5-4c47-aee3-5320729520c5" x="278" y="32" width="174" height="20"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Supliername}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="9d4d7953-fc93-41b7-a8e6-6530d79d59c0" x="0" y="27" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="fa175dfd-5c96-4906-a931-b0f8c4034785" x="1" y="54" width="555" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="87713ccf-66b4-4c91-b8c0-053e0c12c88d" x="0" y="0" width="66" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Sr. No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="09bb5ad1-a1a4-476d-8980-83fa08897533" x="165" y="0" width="120" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="40848212-d235-4ef1-9663-ad9cc0f011ef" x="285" y="0" width="144" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Paid Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="744a7f9d-7be3-4cbb-8112-9e1f960e9032" x="65" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Bill No.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement uuid="97393f8d-a949-4ad9-bd8b-d6e03d5d28dc" x="0" y="0" width="66" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a35ec4b7-5636-482d-b6ce-5c1bd86c8790" x="66" y="0" width="99" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{purid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6dc0be8d-cd47-4f3e-8b73-3f4efc1c7028" x="165" y="0" width="120" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ledgerDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="df7dc972-10d0-4677-9215-3d714502004a" x="285" y="0" width="144" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{paidAmount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="26">
+			<textField>
+				<reportElement uuid="16e8f73b-91e3-4606-8141-86eb32653ed4" x="285" y="5" width="144" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalPaid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="950b43e5-cb44-4acd-ad1e-953a0913b206" x="177" y="6" width="107" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Paid Amount :-]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="4caa9b61-56ca-45b3-9b47-413f7a046d39" x="0" y="4" width="555" height="1"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>
